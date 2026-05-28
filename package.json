@@ -6,10 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "predev": "pnpm run typegen",
-    "prebuild": "pnpm run typegen",
-    "typegen": "sanity schema extract --enforce-required-fields --path=./sanity/extract.json && sanity typegen generate"
+    "lint": "eslint"
   },
   "packageManager": "npm@10.5.2",
   "overrides": {
@@ -17,20 +14,29 @@
     "react-dom": "$react-dom"
   },
   "dependencies": {
-    "@sanity/image-url": "^1.2.0",
-    "@sanity/vision": "^3.99.0",
+   "@sanity/image-url": "^2.1.1",
+   "@sanity/vision": "^5.23.0",
+
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+
     "easymde": "^2.20.0",
     "lucide-react": "^1.14.0",
-    "next": "15.5.4",
+    "markdown-it": "^14.2.0",
+
+    "next": "canary",
     "next-auth": "^5.0.0-beta.29",
-    "next-sanity": "^9.12.3",
+    "next-sanity": "^12.4.0",
+
     "radix-ui": "^1.4.3",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "sanity": "^3.60.0",
-    "sanity-plugin-markdown": "^5.1.3",
+
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+
+    "sanity": "^5.23.0",
+    "sanity-plugin-markdown": "^8.0.5",
+
+    "server-only": "^0.0.1",
     "shadcn": "^4.6.0",
     "styled-components": "^6.4.1",
     "tailwind-merge": "^3.5.0",
@@ -40,12 +46,13 @@
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.19",
+    "@types/markdown-it": "^14.1.2",
     "@types/node": "^20",
-    "@types/react": "^18.3.28",
-    "@types/react-dom": "^18.3.7",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
     "autoprefixer": "^10.4.22",
     "eslint": "^9",
-    "eslint-config-next": "15.5.4",
+    "eslint-config-next": "canary",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.17",
     "tailwindcss-animate": "^1.0.7",
