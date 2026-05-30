@@ -1,9 +1,5 @@
-import React from 'react'
+import LoadingScreen from "@/components/loadingScreen";
 
-const loading = () => {
-  return (
-    <div>------------</div>
-  )
+export default function Loading() {
+  return <LoadingScreen />;
 }
-
-export default loading

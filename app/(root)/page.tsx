@@ -20,6 +20,10 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
   
   const { data: posts } = await sanityFetch({ query: STARTUP_QUERY,params});
 
+   await new Promise((resolve) =>
+    setTimeout(resolve, 5000)
+  );
+
   return (
     <>
     <section className="pink_container">

@@ -8,6 +8,8 @@ import Image from 'next/image';
 import markdownIt from 'markdown-it';
 import {Skeleton} from '@/components/ui/skeleton';
 import View from '@/components/view';
+import StartupCard, { StartupTypeCard } from '@/components/StartupCard';
+import { PLAYLIST_BY_SLUG_QUERY } from '@/sanity/lib/queries';
 
 const md = markdownIt();
 
@@ -16,7 +18,12 @@ const page =  async({params} : {params: Promise<{ id:string }> } ) => {
 
   const id = (await params).id;
 
-  const post = await client.fetch(STARTUP_BY_ID_QUERY, { id });
+  const [post, {select: editorPosts}] = await Promise.all([
+      client.fetch(STARTUP_BY_ID_QUERY, { id }),
+      client.fetch(PLAYLIST_BY_SLUG_QUERY, {
+        slug: "editor-picks",
+      }),
+    ]);
 
   if(!post) return notFound();
 
@@ -33,6 +40,7 @@ const page =  async({params} : {params: Promise<{ id:string }> } ) => {
       <section className="section_container">
         <img 
         src={post.image} 
+        alt="thumbnail"
         className="w-full h-auto rounded-xl"/>
 
         <div className="space-y-5 mt-10 max-w-4xl mx-auto">
@@ -65,7 +73,18 @@ const page =  async({params} : {params: Promise<{ id:string }> } ) => {
       </div>
 
       <hr className="divider"/>
-      {/* TODO: EDITOR SELECTED STARTUPS */}
+
+      {editorPosts?.length > 0 && (
+          <div className="max-w-4xl mx-auto">
+            <p className="text-30-semibold">Editor Picks</p>
+
+            <ul className="mt-7 card_grid-sm">
+              {editorPosts.map((post: StartupTypeCard, i: number) => (
+                <StartupCard key={i} post={post} />
+              ))}
+            </ul>
+          </div>
+        )}
 
       <Suspense fallback={<Skeleton className="view-skeleton"/>}>
       <View id={id}/>
