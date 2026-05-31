@@ -18,7 +18,7 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
   console.log("Session:", session?.id);
 
   
-  const { data: posts } = await sanityFetch({ query: STARTUP_QUERY,params}) as { data: StartupTypeCard[] };
+  const { data: posts } = await sanityFetch({ query: STARTUP_QUERY,params});
 
    await new Promise((resolve) =>
     setTimeout(resolve, 5000)
