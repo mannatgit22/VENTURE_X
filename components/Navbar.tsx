@@ -19,7 +19,7 @@ const Navbar = async() => {
         <div className="flex items-center gap-5 text-black">
         {session && session?.user ? (
           <>
-          <Link href="/startup/create">
+          <Link  className="bg-[#EE2B69] text-white px-5 py-2 rounded-xl border-4 border-black font-bold shadow-[4px_4px_0px_black] transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_black] flex items-center gap-2" href="/startup/create">
           <span className="max-sm:hidden">Create</span>
           <BadgePlus className="size-6 sm:hidden text-blue-500"/>
           
@@ -29,14 +29,14 @@ const Navbar = async() => {
             "use server";
             await signOut({ redirectTo: "/" })
           }}>
-            <button type="submit">
+            <button  className="bg-[#EE2B69] text-white px-5 py-2 rounded-xl border-4 border-black font-bold shadow-[4px_4px_0px_black] transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_black] flex items-center gap-2" type="submit">
               <span className="max-sm:hidden">Logout</span>
               <LogOut className="size-6 sm:hidden text-red-500"/>
             </button>
             </form > 
 
-            <Link href={`/user/${session?.id}`}>
-            <Avatar className="size-10">
+            <Link className="border-4 border-black rounded-full font-bold shadow-[2px_2px_0px_black]" href={`/user/${session?.id}`}>
+            <Avatar className="size-14">
               <AvatarImage src={session?.user?.image || ''} alt={session?.user?.name || ''} />
               <AvatarFallback>
                 AV
@@ -51,7 +51,7 @@ const Navbar = async() => {
             await signIn('github')
           }}>
           
-            <button type="submit">Login</button>
+            <button className="bg-[#EE2B69] text-white px-5 py-2 rounded-xl border-4 border-black font-bold shadow-[4px_4px_0px_black] transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_black]" type="submit">Login</button>
           </form>
         )}
         </div>
