@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import React from "react";
 import SearchForm from "../../components/SearchForm";
 import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
