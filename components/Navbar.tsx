@@ -21,7 +21,7 @@ const Navbar = async() => {
           <>
           <Link  className="bg-[#EE2B69] text-white px-5 py-2 rounded-xl border-4 border-black font-bold shadow-[4px_4px_0px_black] transition-all duration-200 hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[6px_6px_0px_black] flex items-center gap-2" href="/startup/create">
           <span className="max-sm:hidden">Create</span>
-          <BadgePlus className="size-6 sm:hidden text-blue-700"/>
+          <BadgePlus className="size-6 sm:hidden text-blue-600"/>
           
           </Link> 
 
